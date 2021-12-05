@@ -4,25 +4,29 @@ const morgan = require('morgan');
 const colors = require('colors');
 const connectDB = require('./config/db');
 
+const API = '/api/v1/bootcamps';
+ // initialize server
+const app = express();
+
 // load env variables
 dotenv.config({path: './config/config.env'});
 
 // connect to database
 connectDB();
 
-const API = '/api/v1/bootcamps';
-
 // routes files
 const bootcamps = require('./routes/bootcamps');
 
-const app = express();
+
+// body parser
+app.use(express.json());
 
 // Dev logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// mount routes
+// mount routers
 app.use(API, bootcamps);
 
 const PORT = process.env.PORT || 5000;
