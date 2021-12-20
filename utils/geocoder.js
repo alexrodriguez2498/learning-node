@@ -3,7 +3,7 @@ const nodeGeoCoder = require('node-geocoder');
 const options = {
   provider: process.env.GEOCODER_PROVIDER,
   httpAdapter: 'https',
-  apikey: process.env.GEOCODER_API_KEY,
+  apikey: 'ts2WderkbbsXOf3vNfhKJwXdE64kzLyI',
   formatter: null
 };
 console.log(options);
